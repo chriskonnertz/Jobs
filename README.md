@@ -75,7 +75,7 @@ Execute the registered jobs:
     $jobs->run();
 ```
 
-> If your application is built on top of Laravel, you will have access to an Artisan command: `php artisan jobs` This command will call `Jobs::run()` to execute the jobs. Therefore you can add a cronjob to start the command: `10 * * * * /usr/bin/php /var/www/laravel/artisan jobs` This will call the command every ten minutes.
+> If your application is built on top of Laravel, you will have access to an Artisan command: `php artisan jobs` This command will call `Jobs::run()` to execute the jobs. Therefore you can add a cronjob to start the command, for example `10 * * * * /usr/bin/php /var/www/laravel/artisan jobs`. This will execute the Artisan command every ten minutes.
 
 ## Methods Of The Jobs manager
 
