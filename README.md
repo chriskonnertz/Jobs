@@ -102,12 +102,6 @@ Some of these methods are able to throw a JobException.
     $jobs->add($job);
 ```
 
-### Add A Job To The Pool (Wihtout Lazy Loading)
-```php
-    $job = new ExampleJob;
-    $jobs->add($job);
-```
-
 ### Add A Job To The Pool (With Lazy Loading)
 ```php
     // Pass the class name:
