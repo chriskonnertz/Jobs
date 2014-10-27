@@ -2,6 +2,8 @@
 
 Simple cron job manager. Register jobs and the job manager will execute them depending on their time period.
 
+> NOTE: This is not a queue manager and therefore this has nothing to do with Laravel's queue component.
+
 ## Installation
 
 Add `chriskonnertz/jobs` to `composer.json`:
