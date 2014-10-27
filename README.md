@@ -96,7 +96,7 @@ If your application is built on top of Laravel, you have also access to the Arti
     $hasJob = $jobs->has('exampleJob');
 ```
 
-### Add A Job To The Pool (Wihtout Lazy Loading)
+### Add A Job To The Pool (Without Lazy Loading)
 ```php
     $job = new ExampleJob;
     $jobs->add($job);
