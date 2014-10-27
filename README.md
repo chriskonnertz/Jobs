@@ -131,7 +131,7 @@ Some of these methods are able to throw a JobException.
 
 ## The Job Class
 
-A Job class implements the job interface. Therefore it has to implement these methods:
+A job class implements the job interface. Therefore it has to implement these methods:
 
 ```php
     interface JobInterface {
