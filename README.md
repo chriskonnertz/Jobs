@@ -79,7 +79,7 @@ If your application is built on top of Laravel, you have also access to the Arti
 
 ## Methods Of The Jobs manager
 
-Some of these methods are able to throw a JobException.
+> NOTE: Some of these methods are able to throw a JobException.
 
 ### Set The Cache Key Namespace
 ```php
