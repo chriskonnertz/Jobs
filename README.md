@@ -119,7 +119,7 @@ If your application is built on top of Laravel, you have also access to the Arti
     $jobs->remove('exampleJob');
 ```
 
-### Remove All Tags From The Pool
+### Remove All Jobs From The Pool
 ```php
     $jobs->clear();
 ```
