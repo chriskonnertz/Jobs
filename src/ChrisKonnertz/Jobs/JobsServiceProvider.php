@@ -9,7 +9,7 @@ class JobsServiceProvider extends ServiceProvider {
     {
         $this->app->bind('jobs', function()
         {
-            $cache = $this->app['cache'];
+            $cache = new CacheWrapper;
 
             return new Jobs($cache);
         });

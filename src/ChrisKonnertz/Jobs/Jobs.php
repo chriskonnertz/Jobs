@@ -36,7 +36,7 @@ class Jobs {
      * 
      * @param object $cache
      */
-    public function __construct($cache)
+    public function __construct(CacheInterface $cache)
     {
         $this->cache = $cache;
     }
