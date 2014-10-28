@@ -65,7 +65,7 @@ Instantiate the jobs manager:
     $jobs = new ChrisKonnertz\Jobs\Jobs($cache);
 ```
 
-> If you use Laravel and the service provider you do not have to care about this. The service provider will inject the cache dependency.
+> If you use Laravel with the service provider you do not have to worry about this. The service provider will inject the cache dependency. In any other case the cache class has to implement the cache interface (CacheInterface). Take a look at the CacheWrapper class (that is meant for Laravel integration) for an example implementation.
 
 Register the job:
 ```php
