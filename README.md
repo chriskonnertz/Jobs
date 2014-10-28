@@ -1,6 +1,6 @@
 # Jobs
 
-Simple cron job manager. Register jobs and the job manager will execute them depending on their time period.
+Simple cron job manager. Register jobs and the job manager will execute them depending on their cool down time.
 
 > NOTE: This is not a queue manager and therefore this has nothing to do with Laravel's queue component.
 
@@ -59,13 +59,13 @@ Create a job:
     }
 ```
 
-Instantiate the jobs manager:
+Instantiate the job manager:
 ```php
     $cache = new ExampleCacheClass;
     $jobs = new ChrisKonnertz\Jobs\Jobs($cache);
 ```
 
-> If you use Laravel with the service provider you do not have to worry about this. The service provider will inject the cache dependency. In any other case the cache class has to implement the cache interface (CacheInterface). Take a look at the CacheWrapper class (that is meant for Laravel integration) for an example implementation.
+> If you use Laravel with the service provider you do not have to worry about this. The service provider will inject the cache dependency. In any other case the cache class has to implement the cache interface (`CacheInterface`). Take a look at the `CacheWrapper` class (that is meant for Laravel integration) for an example implementation.
 
 Register the job:
 ```php
@@ -77,11 +77,11 @@ Execute the registered jobs:
     $jobs->run();
 ```
 
-> If your application is built on top of Laravel, you will have access to an Artisan command: `php artisan jobs` This command will call `Jobs::run()` to execute the jobs. Therefore you can add a cronjob to start the command, for example `10 * * * * /usr/bin/php /var/www/laravel/artisan jobs`. This will execute the Artisan command every ten minutes.
+> If your application is built on top of Laravel, you will have access to an Artisan command: `php artisan jobs` This command will call `Jobs::run()` to execute the jobs. Therefore you can add a cron job to start the command, for example `10 * * * * /usr/bin/php /var/www/laravel/artisan jobs`. This will execute the Artisan command every ten minutes.
 
 ## Methods Of The Jobs manager
 
-> NOTE: Some of these methods are able to throw a JobException.
+> NOTE: Some of these methods are able to throw a `JobException`.
 
 ### Set The Cache Key Namespace
 ```php
@@ -149,4 +149,4 @@ A job class implements the job interface. Therefore it has to implement these me
     }
 ```
 
-The Job class implements these methods. It provides the attributes `name`, `active` and `timeSpan` that can be overwritten by inheriting classes.
+The `Job` class implements these methods. It provides the attributes `name`, `active` and `timeSpan` that can be overwritten by inheriting classes.
