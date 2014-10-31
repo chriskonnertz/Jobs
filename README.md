@@ -149,4 +149,4 @@ A job class implements the job interface. Therefore it has to implement these me
     }
 ```
 
-The `Job` class implements these methods. It provides the attributes `name`, `active` and `timeSpan` that can be overwritten by inheriting classes.
+The `Job` class actually implements these methods. It provides the attributes `name`, `active` and `timeSpan` that inheriting classes can overwrite.
