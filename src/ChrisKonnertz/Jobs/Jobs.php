@@ -110,7 +110,7 @@ class Jobs {
      * Returns the job with the given name
      * 
      * @param  string $name The name of the job
-     * @return Job
+     * @return JobInterface
      */
     public function get($name)
     {
@@ -124,10 +124,10 @@ class Jobs {
     /**
      * Adds a jobs to the pool
      * 
-     * @param Job $job
+     * @param JobInterface $job
      * @return void
      */
-    public function add(Job $job)
+    public function add(JobInterface $job)
     {
         if (! $job->getName()) {
             throw new JobException('Add a name to the job.');
@@ -167,7 +167,7 @@ class Jobs {
     /**
      * Removes a job from the pool.
      * 
-     * @param  Job    $job
+     * @param  string $name
      * @return bool
      */
     public function remove($name)
@@ -298,13 +298,13 @@ class Jobs {
      * it will create, store and return it.
      * 
      * @param  string $name
-     * @return Job
+     * @return JobInterface
      */
     protected function getOrMake($name)
     {
         $value = $this->jobs[$name];
 
-        if (is_a($value, 'Job')) {
+        if ($value instanceof JobInterface) {
             return $value;
         }
 
@@ -316,7 +316,7 @@ class Jobs {
             $job = $value(); // Execute closure
         }
 
-        if (! is_a($job, 'Job')) {
+        if (! $job instanceof JobInterface) {
             throw new JobException("Object '$name' is not a job!");
         }
 
