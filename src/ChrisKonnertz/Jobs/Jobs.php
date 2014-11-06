@@ -137,31 +137,31 @@ class Jobs {
     }
 
     /**
-     * Adds only the a "constructor". With the help of this constructor
+     * Adds only the a "builder". With the help of this builder
      * the job will be created as late as possible.
-     * $constructor is either a class name or a closure that creates 
+     * $builder is either a class name or a closure that creates 
      * and returns a Job instance.
      * 
-     * @param string        $Name           The name of the job
-     * @param constructor   string|Closure  Class name or closure
+     * @param string         $name    The name of the job
+     * @param string|Closure $builder Class name or closure
      * @return void
      */
-    public function addLazy($name, $constructor)
+    public function addLazy($name, $builder)
     {
         if (! $name) {
             throw new JobException('Set the name of the job.');
         }
 
-        if (! $constructor)
+        if (! $builder)
         {
-            throw new JobException('Set the constructor for the job.');
+            throw new JobException('Set the builder for the job.');
         }
 
-        if (! is_a($constructor, 'Closure') and ! is_string($constructor)) {
-            throw new JobException('The constructor can be a class name or a closure.');
+        if (! is_a($builder, 'Closure') and ! is_string($builder)) {
+            throw new JobException('The builder can only be a class name or a closure.');
         }
 
-        $this->jobs[$name] = $constructor;
+        $this->jobs[$name] = $builder;
     }
 
     /**
