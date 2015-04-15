@@ -137,7 +137,7 @@ class Jobs {
     }
 
     /**
-     * Adds only the a "builder". With the help of this builder
+     * Adds only a "builder". With the help of this builder
      * the job will be created as late as possible.
      * $builder is either a class name or a closure that creates 
      * and returns a Job instance.
