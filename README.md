@@ -2,7 +2,7 @@
 
 Simple cron job manager. Register jobs and the job manager will execute them depending on their cool down time.
 
-> NOTE: This is not a queue manager and therefore this has nothing to do with Laravel's queue component.
+> NOTE: This is not a queue manager and therefore this has nothing to do with Laravel's queue component. Also note that Laravel 5 has an integrated job component that works similar to this one.
 
 ## Installation
 
