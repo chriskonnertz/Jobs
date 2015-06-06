@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ChrisKonnertz\\Jobs\\": "src/"
+            "ChrisKonnertz\\Jobs\\": "src/ChrisKonnertz/Jobs"
         }
     },
     "minimum-stability": "dev"
