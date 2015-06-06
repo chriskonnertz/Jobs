@@ -1,7 +1,7 @@
 {
     "name": "chriskonnertz/jobs",
     "description": "Simple cron job manager",
-    "keywords": ["cron jobs", "laravel", "laravel4"],
+    "keywords": ["cron jobs", "laravel"],
     "license": "MIT",
     "authors": [
         {
