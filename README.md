@@ -12,9 +12,9 @@ Add `chriskonnertz/jobs` to `composer.json`:
 
 Run `composer update` to get the latest version of Jobs.
 
-### Framework Support
+### Framework support
 
-In Laravel 4 you may add aliases to `app/config/app.php`:
+In Laravel 5 you may add aliases to `config/app.php`:
 ```php
     'aliases' => array(
         // ...
@@ -23,7 +23,7 @@ In Laravel 4 you may add aliases to `app/config/app.php`:
     ),
 ```
 
-> In Laravel 5 the path to this file is `config/app.php`.
+> In Laravel 5 the path to this file is `app/config/app.php`.
 
 There is also a service provider and a facade. Add the service provider to the config file:
 
@@ -79,32 +79,32 @@ Execute the registered jobs:
 
 > If your application is built on top of Laravel, you will have access to an Artisan command: `php artisan jobs` This command will call `Jobs::run()` to execute the jobs. Therefore you can add a cron job to start the command, for example `10 * * * * /usr/bin/php /var/www/laravel/artisan jobs`. This will execute the Artisan command every ten minutes.
 
-## Methods Of The Jobs manager
+## Methods of the jobs manager
 
 > NOTE: Some of these methods are able to throw a `JobException`.
 
-### Set The Cache Key Namespace
+### Set the cache key namespace
 ```php
      $jobs->cacheKey('jobs.');
 ```
 
-### Set The Cool Down Time Span
+### Set the cool down time span
 ```php
      $jobs->timeSpan(60); // Seconds
 ```
 
-### Determine If A Job Exists In The Pool
+### Determine if a job exists in the pool
 ```php
     $hasJob = $jobs->has('exampleJob');
 ```
 
-### Add A Job To The Pool (Without Lazy Loading)
+### Add a job to the pool (without lazy loading)
 ```php
     $job = new ExampleJob;
     $jobs->add($job);
 ```
 
-### Add A Job To The Pool (With Lazy Loading)
+### Add a job to the pool (with lazy loading)
 ```php
     // Pass the class name:
     $jobs->addLazy('My\Example\Job');
@@ -116,22 +116,22 @@ Execute the registered jobs:
     });
 ```
 
-### Remove A Job From The Pool
+### Remove a job from the pool
 ```php
     $jobs->remove('exampleJob');
 ```
 
-### Remove All Jobs From The Pool
+### Remove all jobs from the pool
 ```php
     $jobs->clear();
 ```
 
-### Count The Jobs
+### Count the jobs
 ```php
     $howMany = $jobs->count();
 ```
 
-## The Job Class
+## The job class
 
 A job class implements the job interface. Therefore it has to implement these methods:
 
@@ -150,3 +150,8 @@ A job class implements the job interface. Therefore it has to implement these me
 ```
 
 The `Job` class actually implements these methods. It provides the attributes `name`, `active` and `timeSpan` that inheriting classes can overwrite.
+
+### The cool down time span
+
+Per default (as long as the inheriting job class does do not overwrite it) the `getTimeSpan()` is a simple getter 
+for the `timeSpan` attribute. The `timeSpan` attribute defines the duration of the job's cool down in seconds. For example if it is `60 * 60 = 3600` seconds (= 1 hour) the job is executed once per hour (max).
