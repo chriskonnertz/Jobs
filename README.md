@@ -160,4 +160,4 @@ The `Job` class actually implements these methods. It provides the attributes `n
 Per default (as long as the inheriting job class does do not overwrite it) the `getTimeSpan()` is a simple getter 
 for the `timeSpan` attribute. The `timeSpan` attribute defines the duration of the job's cool down in minutes. For example if it is `60` minutes (= `1` hour) the job is executed once per hour (max).
 
-> NOTE: The unit has been _seconds_ in older versions!
+> CAUTION: The unit has been _seconds_ in older versions!
