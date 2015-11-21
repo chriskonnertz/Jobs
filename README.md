@@ -1,8 +1,8 @@
 # Jobs
 
-Simple cron job manager. Register jobs and the job manager will execute them depending on their cool down time.
+Simple Cron job manager. Register jobs and the job manager will execute them depending on their cool down time.
 
-> NOTE: This is not a queue manager and therefore this has nothing to do with Laravel's queue component. Also note that Laravel 5 has an integrated job component that works similar to this one.
+> NOTE: This is not a queue manager and therefore this has nothing to do with Laravel's queue component. Also note that Laravel 5 has an integrated [job component](http://laravel.com/docs/5.1/scheduling) that works similar to this one.
 
 ## Installation
 
@@ -77,7 +77,7 @@ Execute the registered jobs:
     $jobs->run();
 ```
 
-> If your application is built on top of Laravel, you will have access to an Artisan command: `php artisan jobs` This command will call `Jobs::run()` to execute the jobs. Therefore you can add a cron job to start the command, for example `10 * * * * /usr/bin/php /var/www/laravel/artisan jobs`. This will execute the Artisan command every ten minutes.
+> If your application is built on top of Laravel, you will have access to an Artisan command: `php artisan jobs` This command will call `Jobs::run()` to execute the jobs. Therefore you can add a Cron job to start the command, for example `10 * * * * php /var/www/laravel/artisan jobs`. This will execute the Artisan command every ten minutes. Laravel recommends to run the Cron job every minute.
 
 ## Methods of the jobs manager
 
