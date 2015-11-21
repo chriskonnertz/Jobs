@@ -51,6 +51,8 @@ Create a job:
 
         protected $name = 'exampleJob';
 
+        protected $timeSpan = 5; // Run every five minutes
+
         public function run($executed)
         {
             echo 'Hello World!';
