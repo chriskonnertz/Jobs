@@ -24,7 +24,7 @@ class Jobs {
     protected $cacheKey = 'jobs.';
 
     /**
-     * The cool down time span (minutes) 
+     * The minimum cool down time span (minutes) for all jobs
      * @var integer
      */
     protected $timeSpan = 1;
@@ -67,7 +67,7 @@ class Jobs {
     }
 
     /**
-     * Returns the cool down time span
+     * Returns the minimum cool down time span (minutes) for all jobs
      * 
      * @return int
      */
@@ -77,7 +77,7 @@ class Jobs {
     }
 
     /**
-     * Sets the cool down time span
+     * Sets the minimum cool down time span (minutes) for all jobs
      * 
      * @param  int $timeSpan Minutes
      * @return void

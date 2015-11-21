@@ -88,7 +88,7 @@ Execute the registered jobs:
     $jobs->cacheKey('jobs.');
 ```
 
-### Set the cool down time span
+### Set the minimum cool down time span for all jobs
 ```php
     $jobs->timeSpan(1); // Minute
 ```
