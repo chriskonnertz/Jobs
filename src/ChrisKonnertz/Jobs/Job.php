@@ -3,7 +3,7 @@
 abstract class Job implements JobInterface {
 
     /**
-     * The (uniqe) name of the job
+     * The (unique) name of the job
      * @var string
      */
     protected $name = '';
@@ -16,12 +16,12 @@ abstract class Job implements JobInterface {
     protected $active = true;
 
     /**
-     * The cool down time span (seconds).
+     * The cool down time span (minutes).
      * If it is less than the job scheduler's
      * cool down time span it is ignored.
      * @var integer
      */
-    protected $timeSpan = 5;
+    protected $timeSpan = 1;
 
     /**
      * Returns the name of the job.

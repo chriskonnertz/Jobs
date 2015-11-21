@@ -85,12 +85,12 @@ Execute the registered jobs:
 
 ### Set the cache key namespace
 ```php
-     $jobs->cacheKey('jobs.');
+    $jobs->cacheKey('jobs.');
 ```
 
 ### Set the cool down time span
 ```php
-     $jobs->timeSpan(60); // Seconds
+    $jobs->timeSpan(1); // Minute
 ```
 
 ### Determine if a job exists in the pool
@@ -154,4 +154,6 @@ The `Job` class actually implements these methods. It provides the attributes `n
 ### The cool down time span
 
 Per default (as long as the inheriting job class does do not overwrite it) the `getTimeSpan()` is a simple getter 
-for the `timeSpan` attribute. The `timeSpan` attribute defines the duration of the job's cool down in seconds. For example if it is `60 * 60 = 3600` seconds (= 1 hour) the job is executed once per hour (max).
+for the `timeSpan` attribute. The `timeSpan` attribute defines the duration of the job's cool down in minutes. For example if it is `60` minutes (= `1` hour) the job is executed once per hour (max).
+
+> NOTE: The unit has been _seconds_ in older versions!

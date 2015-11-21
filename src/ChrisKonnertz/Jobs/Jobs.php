@@ -24,7 +24,7 @@ class Jobs {
     protected $cacheKey = 'jobs.';
 
     /**
-     * The cool down time span (seconds) 
+     * The cool down time span (minutes) 
      * @var integer
      */
     protected $timeSpan = 1;
@@ -79,7 +79,7 @@ class Jobs {
     /**
      * Sets the cool down time span
      * 
-     * @param  int $timeSpan
+     * @param  int $timeSpan Minutes
      * @return void
      */
     public function timeSpan($timeSpan)
@@ -231,7 +231,7 @@ class Jobs {
         if ($this->cache->has($this->cacheKey)) {
             $executed = $this->cache->get($this->cacheKey);
 
-            if ($now - $executed < $this->timeSpan) {
+            if ($now - $executed < $this->timeSpan * 60) {
                 return false;
             }
         }
@@ -248,7 +248,7 @@ class Jobs {
             if ($this->cache->has($key)) {
                 $executed = $this->cache->get($key);
 
-                if ($now - $executed < $job->getTimeSpan()) {
+                if ($now - $executed < $job->getTimeSpan() * 60) {
                     continue;
                 }
             }
@@ -309,9 +309,9 @@ class Jobs {
         }
 
         if (is_string($value)) {
-            $rc = new ReflectionClass($value);
+            $reflectionClass = new ReflectionClass($value);
 
-            $job = $rc->newInstance(); // Create instance
+            $job = $reflectionClass->newInstance(); // Create instance
         } else {
             $job = $value(); // Execute closure
         }
