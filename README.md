@@ -93,6 +93,8 @@ Execute the registered jobs:
     $jobs->timeSpan(1); // Minute
 ```
 
+The default value is one minute. Most likely there is no reason to change this value ever.
+
 ### Determine if a job exists in the pool
 ```php
     $hasJob = $jobs->has('exampleJob');
