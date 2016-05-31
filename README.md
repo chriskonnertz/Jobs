@@ -2,7 +2,7 @@
 
 Simple Cron job manager. Register jobs and the job manager will execute them depending on their cool down time.
 
-> NOTE: This is not a queue manager and therefore this has nothing to do with Laravel's queue component. Also note that Laravel 5 has an integrated [job component](http://laravel.com/docs/5.1/scheduling) that works similar to this one.
+> NOTE: This is not a queue manager and therefore this has nothing to do with Laravel's queue component. Also note that Laravel 5 has an integrated [job component](http://laravel.com/docs/5.2/scheduling) that works similar to this one.
 
 ## Installation
 
@@ -157,7 +157,7 @@ The `Job` class actually implements these methods. It provides the attributes `n
 
 ### The cool down time span
 
-Per default (as long as the inheriting job class does do not overwrite it) the `getTimeSpan()` is a simple getter 
+Per default (as long as the inheriting job class does not overwrite it) the `getTimeSpan()` is a simple getter 
 for the `timeSpan` attribute. The `timeSpan` attribute defines the duration of the job's cool down in minutes. For example if it is `60` minutes (= `1` hour) the job is executed once per hour (max).
 
 > CAUTION: The unit has been _seconds_ in older versions!
