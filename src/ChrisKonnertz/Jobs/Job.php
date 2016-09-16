@@ -52,6 +52,7 @@ abstract class Job implements JobInterface {
 
     /**
      * Runs the job.
+     * 
      * @return void
      */
     abstract public function run($executed);
