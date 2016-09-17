@@ -16,12 +16,12 @@ abstract class Job implements JobInterface {
     protected $active = true;
 
     /**
-     * The cool down time span (minutes).
+     * The cool down time (minutes).
      * If it is less than the job scheduler's
-     * cool down time span it is ignored.
+     * cool down time it is ignored.
      * @var integer
      */
-    protected $timeSpan = 1;
+    protected $interval = 1;
 
     /**
      * Returns the name of the job.
@@ -42,12 +42,12 @@ abstract class Job implements JobInterface {
     }
    
     /**
-     * Returns the cool down time span
+     * Returns the cool down time
      * 
      * @return integer
      */
-    public function getTimeSpan() {
-        return $this->timeSpan;
+    public function getInterval() {
+        return $this->interval;
     }
 
     /**

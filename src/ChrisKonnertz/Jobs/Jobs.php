@@ -6,6 +6,11 @@ use Closure;
 class Jobs {
 
     /**
+     * The current version of this library
+     */
+    const version = '2.0';
+
+    /**
      * The cache object
      * @var Cache
      */
@@ -24,10 +29,10 @@ class Jobs {
     protected $cacheKey = 'jobs.';
 
     /**
-     * The minimum cool down time span (minutes) for all jobs
+     * The minimum cool down time (minutes) for all jobs
      * @var integer
      */
-    protected $timeSpan = 1;
+    protected $coolDown = 1;
 
     /**
      * Constructor.
@@ -67,32 +72,32 @@ class Jobs {
     }
 
     /**
-     * Returns the minimum cool down time span (minutes) for all jobs
+     * Returns the minimum cool down time (minutes) for all jobs
      * 
      * @return int
      */
-    public function getTimeSpan()
+    public function getCoolDown()
     {
-        return $this->timeSpan;
+        return $this->coolDown;
     }
 
     /**
-     * Sets the minimum cool down time span (minutes) for all jobs
+     * Sets the minimum cool down time (minutes) for all jobs
      * 
-     * @param  int $timeSpan Minutes
+     * @param  int $coolDown Minutes
      * @return void
      */
-    public function timeSpan($timeSpan)
+    public function coolDown($coolDown)
     {
-        if (! is_numeric($timeSpan)) {
-            throw new JobException('The time span has to be numeric.');
+        if (! is_int($coolDown)) {
+            throw new JobException('The cool down time has to be numeric.');
         }
 
-        if ($timeSpan < 1) {
-            throw new JobException('The time span must not be less than 1.');
+        if ($coolDown < 1) {
+            throw new JobException('The cool down time must not be less than 1.');
         }
 
-        $this->timeSpan = $timeSpan;
+        $this->coolDown = $coolDown;
     }
 
     /**
@@ -231,7 +236,7 @@ class Jobs {
         if ($this->cache->has($this->cacheKey)) {
             $executed = $this->cache->get($this->cacheKey);
 
-            if ($now - $executed < $this->timeSpan * 60) {
+            if ($now - $executed < $this->coolDown * 60) {
                 return false;
             }
         }
@@ -248,7 +253,7 @@ class Jobs {
             if ($this->cache->has($key)) {
                 $executed = $this->cache->get($key);
 
-                if ($now - $executed < $job->getTimeSpan() * 60) {
+                if ($now - $executed < $job->getInterval() * 60) {
                     continue;
                 }
             }

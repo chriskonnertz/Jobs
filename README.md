@@ -1,6 +1,6 @@
 # Jobs
 
-Simple Cron job manager. Register jobs and the job manager will execute them depending on their cool down time.
+Simple Cron job manager. Register jobs and the job manager will execute them depending on their interval.
 
 > NOTE: This is not a queue manager and therefore this has nothing to do with Laravel's queue component. Also note that Laravel 5 has an integrated [job component](http://laravel.com/docs/5.2/scheduling) that works similar to this one.
 
@@ -51,7 +51,7 @@ Create a job:
 
         protected $name = 'exampleJob';
 
-        protected $timeSpan = 5; // Run every five minutes
+        protected $interval = 5; // Run every five minutes
 
         public function run($executed)
         {
@@ -90,9 +90,9 @@ Execute the registered jobs:
     $jobs->cacheKey('jobs.');
 ```
 
-### Set the minimum cool down time span for all jobs
+### Set the minimum cool down time for all jobs
 ```php
-    $jobs->timeSpan(1); // Minute
+    $jobs->coolDown(1); // Minute
 ```
 
 The default value is one minute. Most likely there is no reason to change this value ever.
@@ -146,18 +146,18 @@ A job class implements the job interface. Therefore it has to implement these me
 
         public function getActive(); // Active or paused (=not executed)?
 
-        public function getTimeSpan(); // The cool down time span
+        public function getInterval(); // The cool down time
 
         public function run($executed); // The run method
 
     }
 ```
 
-The `Job` class actually implements these methods. It provides the attributes `name`, `active` and `timeSpan` that inheriting classes can overwrite.
+The `Job` class actually implements these methods. It provides the attributes `name`, `active` and `interval` that inheriting classes can overwrite.
 
-### The cool down time span
+### The interval
 
-Per default (as long as the inheriting job class does not overwrite it) the `getTimeSpan()` is a simple getter 
-for the `timeSpan` attribute. The `timeSpan` attribute defines the duration of the job's cool down in minutes. For example if it is `60` minutes (= `1` hour) the job is executed once per hour (max).
+Per default (as long as the inheriting job class does not overwrite it) the `getInterval()` is a simple getter 
+for the `interval` attribute. The `interval` attribute defines the duration of the job's cool down in minutes. For example if it is `60` minutes (= `1` hour) the job is executed once per hour (max).
 
-> CAUTION: The unit has been _seconds_ in older versions!
+> CAUTION: The unit has been _seconds_ in older versions! Also the naming has been changed.

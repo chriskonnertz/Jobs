@@ -6,7 +6,7 @@ interface JobInterface {
 
     public function getActive();
 
-    public function getTimeSpan();
+    public function getInterval();
 
     public function run($executed);   
 
