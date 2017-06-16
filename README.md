@@ -9,6 +9,12 @@ Simple Cron job manager. Register jobs and the job manager will execute them dep
 Add `chriskonnertz/jobs` to `composer.json`:
 
     "chriskonnertz/jobs": "dev-master"
+    
+Or via a console:
+
+```
+composer require chriskonnertz/jobs
+```
 
 Run `composer update` to get the latest version of Jobs.
 
