@@ -34,7 +34,8 @@ abstract class Job implements JobInterface
      * 
      * @return bool
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
    
@@ -43,7 +44,8 @@ abstract class Job implements JobInterface
      * 
      * @return bool
      */
-    public function getActive() {
+    public function getActive()
+    {
         return $this->active;
     }
    
@@ -52,7 +54,8 @@ abstract class Job implements JobInterface
      * 
      * @return int
      */
-    public function getInterval() {
+    public function getInterval()
+    {
         return $this->interval;
     }
 
