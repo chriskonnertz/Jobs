@@ -15,7 +15,7 @@ class Jobs
 
     /**
      * The cache object
-     * @var Cache
+     * @var CacheInterface
      */
     protected $cache;
 
@@ -42,7 +42,7 @@ class Jobs
      * $cache has to implement these methods:
      * has, get, forever, forget
      * 
-     * @param object $cache
+     * @param CacheInterface $cache
      */
     public function __construct(CacheInterface $cache)
     {
