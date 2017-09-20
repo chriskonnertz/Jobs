@@ -7,6 +7,7 @@ abstract class Job implements JobInterface
 
     /**
      * The (unique) name of the job
+     *
      * @var string
      */
     protected $name = '';
@@ -14,7 +15,8 @@ abstract class Job implements JobInterface
     /**
      * If true the jobs is going to be executed.
      * Set to false to pause execution.
-     * @var boolean
+     *
+     * @var bool
      */
     protected $active = true;
 
@@ -22,6 +24,7 @@ abstract class Job implements JobInterface
      * The cool down time (minutes).
      * If it is less than the job scheduler's
      * cool down time it is ignored.
+     *
      * @var integer
      */
     protected $interval = 1;
@@ -29,7 +32,7 @@ abstract class Job implements JobInterface
     /**
      * Returns the name of the job.
      * 
-     * @return boolean
+     * @return bool
      */
     public function getName() {
         return $this->name;
@@ -38,7 +41,7 @@ abstract class Job implements JobInterface
     /**
      * Returns true if the job is active.
      * 
-     * @return boolean
+     * @return bool
      */
     public function getActive() {
         return $this->active;
@@ -47,7 +50,7 @@ abstract class Job implements JobInterface
     /**
      * Returns the cool down time
      * 
-     * @return integer
+     * @return int
      */
     public function getInterval() {
         return $this->interval;
@@ -55,7 +58,8 @@ abstract class Job implements JobInterface
 
     /**
      * Runs the job.
-     * 
+     *
+     * @param int|null $executed Time of last execution
      * @return void
      */
     abstract public function run($executed);

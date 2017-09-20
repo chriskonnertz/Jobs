@@ -28,7 +28,8 @@ interface JobInterface
 
     /**
      * This method is called when the job is run. Overwrite it in your Job class.
-     * 
+     *
+     * @param int|null $executed Time of last execution
      * @return void
      */
     public function run($executed);   
