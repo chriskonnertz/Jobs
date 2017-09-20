@@ -1,6 +1,9 @@
-<?php namespace ChrisKonnertz\Jobs;
+<?php
 
-abstract class Job implements JobInterface {
+namespace ChrisKonnertz\Jobs;
+
+abstract class Job implements JobInterface
+{
 
     /**
      * The (unique) name of the job

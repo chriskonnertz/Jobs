@@ -1,5 +1,10 @@
-<?php namespace ChrisKonnertz\Jobs;
+<?php
+
+namespace ChrisKonnertz\Jobs;
 
 use RuntimeException;
 
-class JobException extends RuntimeException { }
+class JobException extends RuntimeException
+{
+
+}

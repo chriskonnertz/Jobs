@@ -1,11 +1,14 @@
-<?php namespace ChrisKonnertz\Jobs;
+<?php
+
+namespace ChrisKonnertz\Jobs;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Cache;
 
-class JobsCommand extends Command {
+class JobsCommand extends Command
+{
 
 	/**
 	 * The console command name.

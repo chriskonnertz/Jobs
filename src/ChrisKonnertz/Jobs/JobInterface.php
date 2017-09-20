@@ -2,7 +2,8 @@
 
 namespace ChrisKonnertz\Jobs;
 
-interface JobInterface {
+interface JobInterface
+{
 
     /**
      * Returns the name of the job.

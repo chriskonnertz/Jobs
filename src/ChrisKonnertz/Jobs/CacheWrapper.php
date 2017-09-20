@@ -1,8 +1,11 @@
-<?php namespace ChrisKonnertz\Jobs;
+<?php
+
+namespace ChrisKonnertz\Jobs;
 
 use Cache;
 
-class CacheWrapper implements CacheInterface {
+class CacheWrapper implements CacheInterface
+{
 
     public function has($key)
     {

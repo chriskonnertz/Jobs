@@ -1,9 +1,12 @@
-<?php namespace ChrisKonnertz\Jobs;
+<?php
+
+namespace ChrisKonnertz\Jobs;
 
 use ChrisKonnertz\Jobs\Jobs;
 use Illuminate\Support\ServiceProvider;
 
-class JobsServiceProvider extends ServiceProvider {
+class JobsServiceProvider extends ServiceProvider
+{
 
     public function register()
     {

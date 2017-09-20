@@ -1,9 +1,12 @@
-<?php namespace ChrisKonnertz\Jobs;
+<?php
+
+namespace ChrisKonnertz\Jobs;
 
 use ReflectionClass;
 use Closure;
 
-class Jobs {
+class Jobs
+{
 
     /**
      * The current version of this library

@@ -1,8 +1,11 @@
-<?php namespace ChrisKonnertz\Jobs;
+<?php
+
+namespace ChrisKonnertz\Jobs;
 
 use Illuminate\Support\Facades\Facade;
 
-class JobsFacade extends Facade {
+class JobsFacade extends Facade
+{
 
     /**
      * Get the registered name of the component.

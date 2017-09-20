@@ -1,6 +1,9 @@
-<?php namespace ChrisKonnertz\Jobs;
+<?php
 
-interface CacheInterface {
+namespace ChrisKonnertz\Jobs;
+
+interface CacheInterface
+{
 
     /**
      * Returns true if an item with the given ke exists
