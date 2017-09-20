@@ -23,7 +23,7 @@ Run `composer update` to get the latest version of Jobs.
 In Laravel 5 you may add aliases to `config/app.php`:
 ```php
     'aliases' => array(
-        // ...
+        ...
         'Jobs' => 'ChrisKonnertz\Jobs\Jobs',
         'Job'  => 'ChrisKonnertz\Jobs\Job',
     ),
@@ -53,7 +53,8 @@ To create an alias for the facade, add a new entry (or replace the one created b
 
 Create a job:
 ```php
-    class ExampleJob extends ChrisKonnertz\Jobs\Job {
+    class ExampleJob extends ChrisKonnertz\Jobs\Job 
+    {
 
         protected $name = 'exampleJob';
 
@@ -146,7 +147,8 @@ The default value is one minute. Most likely there is no reason to change this v
 A job class implements the job interface. Therefore it has to implement these methods:
 
 ```php
-    interface JobInterface {
+    interface JobInterface 
+    {
 
         public function getName(); // The name (identifier) of the job
 
