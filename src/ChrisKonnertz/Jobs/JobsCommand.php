@@ -5,7 +5,6 @@ namespace ChrisKonnertz\Jobs;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-use Cache;
 
 class JobsCommand extends Command
 {
@@ -46,7 +45,7 @@ class JobsCommand extends Command
 		if ($counter === false) {
 			$this->error('Job executor needs a cool down! No jobs executed.');
 		} else {
-			$this->info('Done. Jobs executed: '.$counter.'/'.JobsFacade::count());	
+			$this->info('Done. Jobs executed: '.$counter.'/'.JobsFacade::count());
 		}		
 	}
 

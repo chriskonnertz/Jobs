@@ -2,7 +2,6 @@
 
 namespace ChrisKonnertz\Jobs;
 
-use ChrisKonnertz\Jobs\Jobs;
 use Illuminate\Support\ServiceProvider;
 
 class JobsServiceProvider extends ServiceProvider

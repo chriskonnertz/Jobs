@@ -11,7 +11,7 @@ class Jobs
     /**
      * The current version of this library
      */
-    const version = '2.0';
+    const version = '2.1';
 
     /**
      * The cache object
@@ -54,7 +54,7 @@ class Jobs
      * 
      * @return string
      */
-    public function getChacheKey()
+    public function getCacheKey()
     {
         return $this->cacheKey;
     }
