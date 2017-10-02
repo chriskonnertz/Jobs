@@ -60,7 +60,7 @@ abstract class Job implements JobInterface
     }
 
     /**
-     * Runs the job.
+     * Runs the job. Overwrite this method in the concrete job class.
      *
      * @param int|null $executed Time of last execution
      * @return void
