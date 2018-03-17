@@ -90,7 +90,7 @@ class Jobs
     /**
      * Sets the minimum cool down time (minutes) for all jobs
      * 
-     * @param  int $coolDown Minutes
+     * @param  int $coolDown The cool down time in minutes
      * @return void
      */
     public function coolDown($coolDown)
