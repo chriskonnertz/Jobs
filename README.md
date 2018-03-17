@@ -132,6 +132,16 @@ The default value is one minute. Most likely there is no reason to change this v
     $howMany = $jobs->count();
 ```
 
+### Get the remaining cool down
+```php
+$minutes = $jobs->remainingCoolDown();
+```
+    
+### Get the timestamp of the last iteration
+```php
+$timestamp =  $jobs->lastRunAt();
+```
+
 ## The job class
 
 A job class implements the job interface. Therefore it has to implement these methods:
