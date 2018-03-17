@@ -2,6 +2,10 @@
 
 namespace ChrisKonnertz\Jobs;
 
+/**
+ * All concrete job classes have to implement this interface.
+ * They might also inherit from the AbstractJob class (which also implements this interface).
+ */
 interface JobInterface
 {
 
