@@ -27,7 +27,7 @@ interface JobInterface
     public function getInterval();
 
     /**
-     * This method is called when the job is run. Overwrite it in your Job class.
+     * This method is called when the job is run. Overwrite it in the concrete Job class.
      *
      * @param int|null $executed Time of last execution
      * @return void
