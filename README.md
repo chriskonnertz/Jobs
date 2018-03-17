@@ -8,7 +8,7 @@ Simple Cron job manager. Register jobs and the job manager will execute them dep
 
 Add `chriskonnertz/jobs` to `composer.json`:
 
-    "chriskonnertz/jobs": "dev-master"
+    "chriskonnertz/jobs": "3.*"
     
 Or via a console:
 
