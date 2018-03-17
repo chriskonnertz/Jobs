@@ -1,10 +1,14 @@
 <?php
 
-namespace ChrisKonnertz\Jobs;
+namespace ChrisKonnertz\Jobs\Cache;
 
 use Cache;
 
-class CacheWrapper implements CacheInterface
+/**
+ * This class is a concrete implementation of the cache interface.
+ * It is a wrapper around Laravel's Cache class (facade).
+ */
+class LaravelCache implements CacheInterface
 {
 
     /**
