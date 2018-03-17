@@ -48,10 +48,11 @@ class JobsCommand extends Command
 		$counter = JobsFacade::run();
 
 		if ($counter === false) {
-			$this->error('Job executor needs a cool down! No jobs executed.');
+			$this->error('Job executor needs to cool down for '.(JobsFacade::remainingCoolDown() * 60)
+                .' seconds! No jobs executed.');
 		} else {
 			$this->info('Done. Jobs executed: '.$counter.'/'.JobsFacade::count());
-		}		
+		}			
 	}
 
 }
