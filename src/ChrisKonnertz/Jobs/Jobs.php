@@ -319,6 +319,7 @@ class Jobs
 
             $job = $reflectionClass->newInstance(); // Create instance
         } else {
+            /** @var Closure $value */
             $job = $value(); // Execute closure
         }
 
