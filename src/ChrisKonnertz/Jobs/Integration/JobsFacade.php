@@ -1,6 +1,7 @@
 <?php
 
 namespace ChrisKonnertz\Jobs\Integration;
+
 use Illuminate\Support\Facades\Facade;
 
 /**
