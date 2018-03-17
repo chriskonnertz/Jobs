@@ -5,7 +5,12 @@ namespace ChrisKonnertz\Jobs;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
+use ChrisKonnertz\Jobs\Integration\JobsFacade;
 
+/**
+ * This is a Laravel command that can be run by Artisan.
+ * Call "php artisan jobs" on a console to run this command.
+ */
 class JobsCommand extends Command
 {
 
