@@ -34,7 +34,7 @@ To create an alias for the facade, add this new entry in this file:
 ```php
     'aliases' => array(
         // ...
-        'Jobs' => 'ChrisKonnertz\Jobs\\Integration\JobsFacade',
+        'Jobs' => 'ChrisKonnertz\Jobs\Integration\JobsFacade',
         'AbstractJob' => 'ChrisKonnertz\Jobs\AbstractJob',
     ),
 ```
