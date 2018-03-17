@@ -4,18 +4,11 @@ namespace ChrisKonnertz\Jobs;
 
 /**
  * This is the abstract base class for all concrete Job classes.
- * The concrete Job class has to implemnent its run() method and to set a value for its $name property.
+ * The concrete Job class has to implemnent its run() method.
  * It might also overwrite the default value of the $interval property.
  */
 abstract class AbstractJob implements JobInterface
 {
-
-    /**
-     * The (unique) name of the job
-     *
-     * @var string
-     */
-    protected $name = '';
 
     /**
      * If true the jobs is going to be executed.
@@ -37,11 +30,12 @@ abstract class AbstractJob implements JobInterface
     /**
      * Returns the name of the job.
      * 
-     * @return bool
+     * @return string
      */
     public function getName()
     {
-        return $this->name;
+        // Use the name of the concrete Job class as name
+        return get_class($this);
     }
    
     /**
@@ -55,7 +49,7 @@ abstract class AbstractJob implements JobInterface
     }
    
     /**
-     * Returns the cool down time
+     * Returns the cool down time of the job
      * 
      * @return int
      */
@@ -65,9 +59,9 @@ abstract class AbstractJob implements JobInterface
     }
 
     /**
-     * Runs the job. Overwrite this method in the concrete job class.
+     * Runs the job. Implement this method in the concrete job class.
      *
-     * @param int|null $executedAt Time of last execution
+     * @param int|null $executedAt Time of the last execution of this job
      * @return void
      */
     abstract public function run($executedAt);
