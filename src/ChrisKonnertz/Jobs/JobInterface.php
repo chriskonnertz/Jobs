@@ -6,7 +6,7 @@ interface JobInterface
 {
 
     /**
-     * Returns the name of the job.
+     * Returns the name of the job. It might simply return the name of the concrete job class.
      * 
      * @return string
      */
