@@ -2,8 +2,9 @@
 
 namespace ChrisKonnertz\Jobs\Integration;
 
-use Illuminate\Support\ServiceProvider;
 use ChrisKonnertz\Jobs\Cache\LaravelCache;
+use ChrisKonnertz\Jobs\Jobs;
+use Illuminate\Support\ServiceProvider;
 
 /**
  * This is a service provider class for Laravel
