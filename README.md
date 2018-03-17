@@ -29,8 +29,6 @@ In Laravel 5 you may add aliases to `config/app.php`:
     ),
 ```
 
-> In Laravel 4 the path to this file is `app/config/app.php`.
-
 There is also a service provider and a facade. Add the service provider to the config file:
 
 ```php
