@@ -3,6 +3,7 @@
 namespace ChrisKonnertz\Jobs\Integration;
 
 use Illuminate\Support\ServiceProvider;
+use ChrisKonnertz\Jobs\Cache\LaravelCache;
 
 /**
  * This is a service provider class for Laravel
@@ -14,7 +15,7 @@ class JobsServiceProvider extends ServiceProvider
     {
         $this->app->bind('jobs', function()
         {
-            $cache = new CacheWrapper;
+            $cache = new LaravelCache;
 
             return new Jobs($cache);
         });
