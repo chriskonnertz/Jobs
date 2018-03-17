@@ -1,9 +1,12 @@
 <?php
 
-namespace ChrisKonnertz\Jobs;
+namespace ChrisKonnertz\Jobs\Integration;
 
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * This is a facade class for Laravel
+ */
 class JobsFacade extends Facade
 {
 
@@ -12,6 +15,8 @@ class JobsFacade extends Facade
      *
      * @return string
      */
-    protected static function getFacadeAccessor() { return 'jobs'; }
+    protected static function getFacadeAccessor() { 
+        return 'jobs'; 
+    }
 
 }
