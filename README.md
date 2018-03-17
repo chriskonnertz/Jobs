@@ -20,16 +20,7 @@ Run `composer update` to get the latest version of this library.
 
 ### Framework support
 
-In Laravel 5 you may add aliases to `config/app.php`:
-```php
-    'aliases' => array(
-        ...
-        'Jobs' => 'ChrisKonnertz\Jobs\Jobs',
-        'AbstractJob' => 'ChrisKonnertz\Jobs\AbstractJob',
-    ),
-```
-
-There is also a service provider and a facade. Add the service provider to the config file:
+In Laravel 5 there is a service provider. Add the service provider to the config file `config/app.php`:
 
 ```php
     'providers' => array(
@@ -38,12 +29,13 @@ There is also a service provider and a facade. Add the service provider to the c
     ),
 ```
 
-To create an alias for the facade, add a new entry (or replace the one created before):
+To create an alias for the facade, add this new entry in this file:
 
 ```php
     'aliases' => array(
         // ...
         'Jobs' => 'ChrisKonnertz\Jobs\\Integration\JobsFacade',
+        'AbstractJob' => 'ChrisKonnertz\Jobs\AbstractJob',
     ),
 ```
 
