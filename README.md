@@ -50,7 +50,7 @@ Create a job:
 
         protected $interval = 5; // Run every five minutes
 
-        public function run($executed)
+        public function run($executedAt)
         {
             echo 'Hello World!';
         }
