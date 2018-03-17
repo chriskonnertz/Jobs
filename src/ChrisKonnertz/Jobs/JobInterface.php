@@ -8,7 +8,7 @@ interface JobInterface
     /**
      * Returns the name of the job.
      * 
-     * @return boolean
+     * @return string
      */
     public function getName();
    
