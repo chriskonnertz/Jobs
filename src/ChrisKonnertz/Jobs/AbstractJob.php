@@ -2,7 +2,12 @@
 
 namespace ChrisKonnertz\Jobs;
 
-abstract class Job implements JobInterface
+/**
+ * This is the abstract base class for all concrete Job classes.
+ * The concrete Job class has to implemnent its run() method and to set a value for its $name property.
+ * It might also overwrite the default value of the $interval property.
+ */
+abstract class AbstractJob implements JobInterface
 {
 
     /**
