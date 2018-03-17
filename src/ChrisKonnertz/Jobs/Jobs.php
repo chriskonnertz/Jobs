@@ -4,6 +4,7 @@ namespace ChrisKonnertz\Jobs;
 
 use ReflectionClass;
 use Closure;
+use Cache\CacheInterface;
 
 class Jobs
 {
@@ -11,7 +12,7 @@ class Jobs
     /**
      * The current version of this library
      */
-    const version = '2.0';
+    const version = '3.0';
 
     /**
      * The cache object
@@ -21,7 +22,7 @@ class Jobs
 
     /**
      * Array of job objects
-     * @var array
+     * @var JobInterface[]
      */
     protected $jobs = array();
 
@@ -39,8 +40,7 @@ class Jobs
 
     /**
      * Constructor.
-     * $cache has to implement these methods:
-     * has, get, forever, forget
+     * The cache object has to implement these methods: has(), get(), forever(), forget()
      * 
      * @param CacheInterface $cache
      */
@@ -67,10 +67,13 @@ class Jobs
      */
     public function cacheKey($cacheKey)
     {
-        if (! $cacheKey) {
+        if (! is_string($cacheKey)) {
+            throw new JobException('The cache key has to be a string.');
+        }
+        if ($cacheKey == '') {
             throw new JobException('The cache key can not be empty.');
         }
-
+        
         $this->cacheKey = $cacheKey;
     }
 
@@ -95,7 +98,6 @@ class Jobs
         if (! is_int($coolDown)) {
             throw new JobException('The cool down time has to be numeric.');
         }
-
         if ($coolDown < 1) {
             throw new JobException('The cool down time must not be less than 1.');
         }
@@ -107,7 +109,7 @@ class Jobs
      * Returns true if a job with that name exists
      * 
      * @param  string  $name The name of the job
-     * @return boolean
+     * @return bool
      */
     public function has($name)
     {
@@ -130,7 +132,7 @@ class Jobs
     }
 
     /**
-     * Adds a jobs to the pool
+     * Adds a job to the pool
      * 
      * @param JobInterface $job
      * @return void
@@ -159,12 +161,10 @@ class Jobs
         if (! $name) {
             throw new JobException('Set the name of the job.');
         }
-
         if (! $builder)
         {
             throw new JobException('Set the builder for the job.');
         }
-
         if (! is_a($builder, 'Closure') and ! is_string($builder)) {
             throw new JobException('The builder can only be a class name or a closure.');
         }
@@ -173,7 +173,7 @@ class Jobs
     }
 
     /**
-     * Removes a job from the pool.
+     * Removes a job from the pool
      * 
      * @param  string $name
      * @return bool
@@ -213,7 +213,7 @@ class Jobs
     /**
      * Returns an array with all jobs
      * 
-     * @return array
+     * @return JobInterface[]
      */
     public function all()
     {
@@ -300,10 +300,8 @@ class Jobs
     }
 
     /**
-     * If a job with the given name exists,
-     * this method returns the job.
-     * If there is no such job yet,
-     * it will create, store and return it.
+     * If a job with the given name exists, this method returns the job.
+     * If there is no such job yet, it will create, store and return it.
      * 
      * @param  string $name
      * @return JobInterface
