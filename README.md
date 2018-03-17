@@ -120,7 +120,7 @@ The default value is one minute. Most likely there is no reason to change this v
     // Pass the class name:
     $jobs->addLazy('My\Example\Job');
 
-    // Pass a closure:
+    // Or pass a closure:
     $jobs->addLazy(function()
     {
         return new ExampleJob;
