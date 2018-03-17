@@ -1,9 +1,12 @@
 <?php
 
-namespace ChrisKonnertz\Jobs;
+namespace ChrisKonnertz\Jobs\Integration;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * This is a service provider class for Laravel
+ */
 class JobsServiceProvider extends ServiceProvider
 {
 
