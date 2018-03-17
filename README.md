@@ -158,8 +158,6 @@ The `Job` class actually implements these methods. It provides the attributes `n
 Per default (as long as the inheriting job class does not overwrite it) the `getInterval()` is a simple getter 
 for the `interval` attribute. The `interval` attribute defines the duration of the job's cool down in minutes. For example if it is `60` minutes (= `1` hour) the job is executed once per hour (max).
 
-> CAUTION: The unit has been _seconds_ in older versions! Also the naming has been changed.
-
 ## Status
 
 Status of this repository: **Maintained**. Create an issue and you will get a response, usually within 48 hours.
