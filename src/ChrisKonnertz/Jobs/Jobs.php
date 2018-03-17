@@ -273,6 +273,27 @@ class Jobs
         return $counter;
     }
 
+    /**
+     * Returns the number of minutes the job executor still is in cool down mode.
+     * Minimum is 0.
+     *
+     * @return int
+     */
+    public function remainingCoolDown()
+    {
+        $now = time();
+
+        if ($this->cache->has($this->cacheKey)) {
+            $executed = $this->cache->get($this->cacheKey);
+
+            $remainingCoolDown = $executed + $this->coolDown * 60 - $now;
+
+            return max($remainingCoolDown / 60, 0);
+        }
+
+        return 0;
+    }
+
     public function __toString()
     {
         $string = '[';
