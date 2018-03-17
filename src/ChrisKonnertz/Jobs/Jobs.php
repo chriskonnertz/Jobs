@@ -236,12 +236,8 @@ class Jobs
     {
         $now = time();
 
-        if ($this->cache->has($this->cacheKey)) {
-            $executed = $this->cache->get($this->cacheKey);
-
-            if ($now - $executed < $this->coolDown * 60) {
-                return false;
-            }
+        if ($this->remainingCoolDown() > 0) {
+            return false;
         }
 
         $this->cache->forever($this->cacheKey, $now);
