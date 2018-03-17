@@ -16,7 +16,7 @@ Or via a console:
 composer require chriskonnertz/jobs
 ```
 
-Run `composer update` to get the latest version of Jobs.
+Run `composer update` to get the latest version of this library.
 
 ### Framework support
 
