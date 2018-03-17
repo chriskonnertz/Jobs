@@ -25,7 +25,7 @@ In Laravel 5 you may add aliases to `config/app.php`:
     'aliases' => array(
         ...
         'Jobs' => 'ChrisKonnertz\Jobs\Jobs',
-        'Job'  => 'ChrisKonnertz\Jobs\Job',
+        'AbstractJob' => 'ChrisKonnertz\Jobs\AbstractJob',
     ),
 ```
 
@@ -36,7 +36,7 @@ There is also a service provider and a facade. Add the service provider to the c
 ```php
     'providers' => array(
         // ...
-        'ChrisKonnertz\Jobs\JobsServiceProvider',
+        'ChrisKonnertz\Jobs\Integration\JobsServiceProvider',
     ),
 ```
 
@@ -45,7 +45,7 @@ To create an alias for the facade, add a new entry (or replace the one created b
 ```php
     'aliases' => array(
         // ...
-        'Jobs' => 'ChrisKonnertz\Jobs\JobsFacade',
+        'Jobs' => 'ChrisKonnertz\Jobs\\Integration\JobsFacade',
     ),
 ```
 
@@ -53,7 +53,7 @@ To create an alias for the facade, add a new entry (or replace the one created b
 
 Create a job:
 ```php
-    class ExampleJob extends ChrisKonnertz\Jobs\Job 
+    class ExampleJob extends ChrisKonnertz\Jobs\AbstractJob 
     {
 
         protected $name = 'exampleJob';
@@ -74,7 +74,7 @@ Instantiate the job manager:
     $jobs = new ChrisKonnertz\Jobs\Jobs($cache);
 ```
 
-> If you use Laravel with the service provider you do not have to worry about this. The service provider will inject the cache dependency. In any other case the cache class has to implement the cache interface (`CacheInterface`). Take a look at the `CacheWrapper` class (that is meant for Laravel integration) for an example implementation.
+> If you use Laravel with the service provider you do not have to worry about this. The service provider will inject the cache dependency. In any other case the cache class has to implement the cache interface (`CacheInterface`). Take a look at the `LaravelCache` class (that is meant for Laravel integration) for an example implementation.
 
 Register the job:
 ```php
