@@ -1,6 +1,6 @@
 <?php
 
-namespace ChrisKonnertz\Jobs;
+namespace ChrisKonnertz\Jobs\Cache;
 
 interface CacheInterface
 {
