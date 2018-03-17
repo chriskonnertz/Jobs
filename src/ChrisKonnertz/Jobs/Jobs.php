@@ -4,7 +4,7 @@ namespace ChrisKonnertz\Jobs;
 
 use ReflectionClass;
 use Closure;
-use Cache\CacheInterface;
+use ChrisKonnertz\Jobs\Cache\CacheInterface;
 
 class Jobs
 {
