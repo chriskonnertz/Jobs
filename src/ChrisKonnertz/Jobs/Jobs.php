@@ -280,14 +280,32 @@ class Jobs
         $now = time();
 
         if ($this->cache->has($this->cacheKey)) {
-            $executed = $this->cache->get($this->cacheKey);
+            $executedAt = $this->cache->get($this->cacheKey);
 
-            $remainingCoolDown = $executed + $this->coolDown * 60 - $now;
+            $remainingCoolDown = $executedAt + $this->coolDown * 60 - $now;
 
             return max($remainingCoolDown / 60, 0);
         }
 
         return 0;
+    }
+
+    /**
+     * Returns the timestamp (in seconds) of the last time the run() method has been called.
+     * Returns null if this did not happen so far.
+     * Note: If the cache is reset, this timestamp will be reset as well!
+     *
+     * @return int|null
+     */
+    public function lastRunAt()
+    {
+        if ($this->cache->has($this->cacheKey)) {
+            $executedAt = $this->cache->get($this->cacheKey);
+            
+            return $executedAt;
+        } else {
+            return null;
+        }
     }
 
     public function __toString()
