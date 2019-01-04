@@ -28,7 +28,8 @@ abstract class AbstractJob implements JobInterface
     protected $interval = 1;
 
     /**
-     * Returns the name of the job.
+     * Returns the unique name of the job.
+     * The name is used as an identifier.
      * 
      * @return string
      */
