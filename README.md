@@ -16,11 +16,11 @@ Or via a console:
 composer require chriskonnertz/jobs
 ```
 
-Run `composer update` to get the latest version of this library.
+In the future run `composer update` to update to the latest version of this library.
 
 ### Framework support
 
-In Laravel 5 there is a service provider. Add the service provider to the config file `config/app.php`:
+In Laravel 5.* there is a service provider. Add the service provider to the config file `config/app.php`:
 
 ```php
     'providers' => array(
@@ -41,7 +41,7 @@ To create an alias for the facade, add this new entry in this file:
 
 ## Introduction
 
-Create a job:
+Create a concrete job class:
 ```php
     class ExampleJob extends ChrisKonnertz\Jobs\AbstractJob 
     {
@@ -80,19 +80,7 @@ Execute the registered jobs:
 
 ## Methods of the jobs manager
 
-> NOTE: Some of these methods are able to throw a `JobException`.
-
-### Set the cache key namespace
-```php
-    $jobs->cacheKey('jobs.');
-```
-
-### Set the minimum cool down time for all jobs
-```php
-    $jobs->coolDown(1); // Minute
-```
-
-The default value is one minute. Most likely there is no reason to change this value ever.
+> Note: Some of these methods may throw a `JobException`.
 
 ### Determine if a job exists in the pool
 ```php
@@ -108,7 +96,7 @@ The default value is one minute. Most likely there is no reason to change this v
 ### Add a job to the pool (with lazy loading)
 ```php
     // Pass the class name:
-    $jobs->addLazy('My\Example\Job');
+    $jobs->addLazy(\My\Example\Job::class);
 
     // Or pass a closure:
     $jobs->addLazy(function()
@@ -116,6 +104,8 @@ The default value is one minute. Most likely there is no reason to change this v
         return new ExampleJob;
     });
 ```
+
+We recommend using `addLazy()` over `add()`.
 
 ### Remove a job from the pool
 ```php
@@ -141,6 +131,17 @@ $minutes = $jobs->remainingCoolDown();
 ```php
 $timestamp =  $jobs->lastRunAt();
 ```
+### Set the minimum cool down time for all jobs
+```php
+    $jobs->coolDown(1); // One minute
+```
+
+The minimum value and the initial value is one minute. Most likely there is no reason to change this value ever.
+
+### Set the cache key namespace
+```php
+    $jobs->cacheKey('jobs.');
+```
 
 ## The job class
 
@@ -156,12 +157,12 @@ A job class implements the job interface. Therefore it has to implement these me
 
         public function getInterval(); // The cool down time
 
-        public function run($executed); // The run method
+        public function run($executedAt); // The run method
 
     }
 ```
 
-The `Job` class actually implements these methods. It provides the attributes `name`, `active` and `interval` that inheriting classes can overwrite.
+The `AbstractJob` class actually implements these methods so we recommend to let your concrete job classes inherit from this class. The asbtract class provides the attributes `name`, `active` and `interval` that inheriting classes may overwrite.
 
 ### The interval
 
