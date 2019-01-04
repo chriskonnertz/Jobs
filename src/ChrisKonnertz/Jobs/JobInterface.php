@@ -10,7 +10,8 @@ interface JobInterface
 {
 
     /**
-     * Returns the name of the job. It might simply return the name of the concrete job class.
+     * Returns the unique name of the job. The name is used as an identifier.
+     * The method might simply return the name of the concrete job class.
      * 
      * @return string
      */
