@@ -25,7 +25,7 @@ interface JobInterface
     public function getActive();
    
     /**
-     * Returns the cool down time
+     * Returns the cool down time in minutes
      * 
      * @return integer
      */
