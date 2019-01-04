@@ -50,7 +50,7 @@ abstract class AbstractJob implements JobInterface
     }
    
     /**
-     * Returns the cool down time of the job
+     * Returns the cool down time of the job in minutes
      * 
      * @return int
      */
