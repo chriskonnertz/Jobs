@@ -6,7 +6,7 @@ interface CacheInterface
 {
 
     /**
-     * Returns true if an item with the given ke exists
+     * Returns true if an item with the given key exists, false otherwise
      *
      * @param string $key
      * @return bool
@@ -14,7 +14,7 @@ interface CacheInterface
     public function has($key);
 
     /**
-     * Stores an item with a given key in the cache without expiration
+     * Stores an item with a given key in the cache, without expiration
      *
      * @param string $key
      * @param mixed $value
