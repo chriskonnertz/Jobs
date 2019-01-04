@@ -161,8 +161,7 @@ class Jobs
         if (! $name) {
             throw new JobException('Set the name of the job.');
         }
-        if (! $builder)
-        {
+        if (! $builder) {
             throw new JobException('Set the builder for the job.');
         }
         if (! is_a($builder, 'Closure') and ! is_string($builder)) {
@@ -181,7 +180,9 @@ class Jobs
     public function remove($name)
     {
         $key = $this->makeCacheKey($name);
+        
         $this->cache->forget($key);
+        
         unset($this->jobs[$name]);
     }
 
