@@ -20,7 +20,7 @@ In the future run `composer update` to update to the latest version of this libr
 
 ### Framework support
 
-In Laravel 5.* there is a service provider. Add the service provider to the config file `config/app.php`:
+This library supports Laravel >=5.5 with a service provider. Add the service provider to the config file `config/app.php`:
 
 ```php
     'providers' => array(
