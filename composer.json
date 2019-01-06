@@ -1,7 +1,7 @@
 {
     "name": "chriskonnertz/jobs",
     "description": "Simple cron job manager",
-    "keywords": ["cron jobs", "laravel"],
+    "keywords": ["cron jobs", "cron job", "job", "laravel"],
     "license": "MIT",
     "authors": [
         {
@@ -14,6 +14,16 @@
     "autoload": {
         "psr-4": {
             "ChrisKonnertz\\Jobs\\": "src/ChrisKonnertz/Jobs"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ChrisKonnertz\\Jobs\\Integration\\JobsServiceProvider"
+            ],
+            "aliases": {
+                "OpenGraph": "ChrisKonnertz\\Jobs\\Integration\\JobsFacade"
+            }
         }
     },
     "minimum-stability": "dev"
