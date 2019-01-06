@@ -1,6 +1,6 @@
 <?php
 
-namespace ChrisKonnertz\Jobs;
+namespace ChrisKonnertz\Jobs\Integration;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
@@ -43,7 +43,7 @@ class JobsCommand extends Command
 	 *
 	 * @return mixed
 	 */
-	public function fire()
+	public function handle()
 	{
 		$counter = JobsFacade::run();
 
