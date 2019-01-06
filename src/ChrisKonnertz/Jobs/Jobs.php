@@ -12,7 +12,7 @@ class Jobs
     /**
      * The current version of this library
      */
-    const version = '3.0';
+    const version = '3.1';
 
     /**
      * The cache object
