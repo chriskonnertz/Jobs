@@ -54,7 +54,7 @@ class Jobs
      * 
      * @return string
      */
-    public function getCacheKey()
+    public function getCacheKey() : string
     {
         return $this->cacheKey;
     }
@@ -65,11 +65,8 @@ class Jobs
      * @param  string $cacheKey
      * @return void
      */
-    public function cacheKey($cacheKey)
+    public function cacheKey(string $cacheKey)
     {
-        if (! is_string($cacheKey)) {
-            throw new JobException('The cache key has to be a string.');
-        }
         if ($cacheKey == '') {
             throw new JobException('The cache key can not be empty.');
         }
@@ -82,7 +79,7 @@ class Jobs
      * 
      * @return int
      */
-    public function getCoolDown()
+    public function getCoolDown() : int
     {
         return $this->coolDown;
     }
@@ -93,11 +90,8 @@ class Jobs
      * @param  int $coolDown The cool down time in minutes
      * @return void
      */
-    public function coolDown($coolDown)
+    public function coolDown(int $coolDown)
     {
-        if (! is_int($coolDown)) {
-            throw new JobException('The cool down time has to be numeric.');
-        }
         if ($coolDown < 1) {
             throw new JobException('The cool down time must not be less than 1.');
         }
@@ -111,7 +105,7 @@ class Jobs
      * @param  string  $name The name of the job
      * @return bool
      */
-    public function has($name)
+    public function has(string $name) : bool
     {
         return isset($this->jobs[$name]);
     }
@@ -122,7 +116,7 @@ class Jobs
      * @param  string $name The name of the job
      * @return JobInterface
      */
-    public function get($name)
+    public function get(string $name) : JobInterface
     {
         if ($this->has($name)) {
             return $this->getOrMake($name);
@@ -156,7 +150,7 @@ class Jobs
      * @param string|Closure $builder Class name or closure
      * @return void
      */
-    public function addLazy($name, $builder)
+    public function addLazy(string $name, $builder)
     {
         if (! $name) {
             throw new JobException('Set the name of the job.');
@@ -177,7 +171,7 @@ class Jobs
      * @param  string $name
      * @return bool
      */
-    public function remove($name)
+    public function remove(string $name) : bool
     {
         $key = $this->makeCacheKey($name);
         
@@ -206,7 +200,7 @@ class Jobs
      * 
      * @return int
      */
-    public function count()
+    public function count() : int
     {
         return sizeof($this->jobs);
     }
@@ -216,7 +210,7 @@ class Jobs
      * 
      * @return JobInterface[]
      */
-    public function all()
+    public function all() : array
     {
         $jobs = array();
 
@@ -276,7 +270,7 @@ class Jobs
      *
      * @return int
      */
-    public function remainingCoolDown()
+    public function remainingCoolDown() : int
     {
         $now = time();
 
@@ -330,7 +324,7 @@ class Jobs
      * @param  string $name The name of the job
      * @return string
      */
-    protected function makeCacheKey($name)
+    protected function makeCacheKey(string $name) : string
     {
         return $key = $this->cacheKey.$name;
     }
@@ -342,7 +336,7 @@ class Jobs
      * @param  string $name
      * @return JobInterface
      */
-    protected function getOrMake($name)
+    protected function getOrMake(string $name) JobInterface
     {
         $value = $this->jobs[$name];
 
