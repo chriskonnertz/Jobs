@@ -15,21 +15,21 @@ interface JobInterface
      * 
      * @return string
      */
-    public function getName();
+    public function getName() : string;
    
     /**
      * Returns true if the job is active, false if it is paused (=not executed)
      * 
      * @return boolean
      */
-    public function getActive();
+    public function getActive() : bool;
    
     /**
      * Returns the cool down time in minutes
      * 
      * @return integer
      */
-    public function getInterval();
+    public function getInterval() : int;
 
     /**
      * This method is called when the job is run. Overwrite it in the concrete Job class.
@@ -37,6 +37,6 @@ interface JobInterface
      * @param int|null $executedAt Time of last execution
      * @return void
      */
-    public function run($executedAt);   
+    public function run(int $executedAt = null);
 
 }
