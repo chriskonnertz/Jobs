@@ -336,7 +336,7 @@ class Jobs
      * @param  string $name
      * @return JobInterface
      */
-    protected function getOrMake(string $name) JobInterface
+    protected function getOrMake(string $name) : JobInterface
     {
         $value = $this->jobs[$name];
 
