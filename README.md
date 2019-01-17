@@ -6,9 +6,11 @@ Minimalistic Cron job manager. Register jobs and the job manager will execute th
 
 ## Installation
 
+> This library requires PHP >= 7.0
+
 Add `chriskonnertz/jobs` to `composer.json`:
 
-    "chriskonnertz/jobs": "3.*"
+    "chriskonnertz/jobs": "4.*"
     
 Or via a console:
 
@@ -50,7 +52,7 @@ Create a concrete job class:
 
         protected $interval = 5; // Run every five minutes
 
-        public function run($executedAt)
+        public function run(int $executedAt = null)
         {
             echo 'Hello World!';
         }
@@ -151,13 +153,13 @@ A job class implements the job interface. Therefore it has to implement these me
     interface JobInterface 
     {
 
-        public function getName(); // The name (identifier) of the job
+        public function getName() : string; // The name (identifier) of the job
 
-        public function getActive(); // Active or paused (=not executed)?
+        public function getActive() : bool; // Active or paused (=not executed)?
 
-        public function getInterval(); // The cool down time
+        public function getInterval() : int; // The cool down time
 
-        public function run($executedAt); // The run method
+        public function run(int $executedAt = null); // The run method
 
     }
 ```
