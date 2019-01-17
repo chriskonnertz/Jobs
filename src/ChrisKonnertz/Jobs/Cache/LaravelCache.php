@@ -14,7 +14,7 @@ class LaravelCache implements CacheInterface
     /**
      * {@inheritDoc}
      */
-    public function has($key)
+    public function has(string $key) : bool
     {
         return Cache::has($key);
     }
@@ -22,7 +22,7 @@ class LaravelCache implements CacheInterface
     /**
      * {@inheritDoc}
      */
-    public function forever($key, $value)    
+    public function forever(string $key, $value)    
     {
         Cache::forever($key, $value);
     }
@@ -30,7 +30,7 @@ class LaravelCache implements CacheInterface
     /**
      * {@inheritDoc}
      */
-    public function get($key)
+    public function get(string $key)
     {
         return Cache::get($key);
     }
@@ -38,7 +38,7 @@ class LaravelCache implements CacheInterface
     /**
      * {@inheritDoc}
      */
-    public function forget($key)
+    public function forget(string $key)
     {
         Cache::forget($key);
     }
