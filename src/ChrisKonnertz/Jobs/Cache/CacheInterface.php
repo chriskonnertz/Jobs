@@ -11,7 +11,7 @@ interface CacheInterface
      * @param string $key
      * @return bool
      */
-    public function has($key);
+    public function has(string $key) : bool;
 
     /**
      * Stores an item with a given key in the cache, without expiration
@@ -20,7 +20,7 @@ interface CacheInterface
      * @param mixed $value
      * @return void
      */
-    public function forever($key, $value);
+    public function forever(string $key, $value);
 
     /**
      * Returns an item of the cache. May return null
@@ -28,7 +28,7 @@ interface CacheInterface
      * @param string $key
      * @return mixed
      */
-    public function get($key);
+    public function get(string $key);
 
     /**
      * Removes an item with a given key from the cache
@@ -36,6 +36,6 @@ interface CacheInterface
      * @param string $key
      * @return void
      */
-    public function forget($key);
+    public function forget(string $key);
 
 }
