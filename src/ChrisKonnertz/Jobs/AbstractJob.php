@@ -33,7 +33,7 @@ abstract class AbstractJob implements JobInterface
      * 
      * @return string
      */
-    public function getName()
+    public function getName() :  string
     {
         // Use the name of the concrete Job class as name
         return get_class($this);
@@ -44,7 +44,7 @@ abstract class AbstractJob implements JobInterface
      * 
      * @return bool
      */
-    public function getActive()
+    public function getActive() : bool
     {
         return $this->active;
     }
@@ -54,7 +54,7 @@ abstract class AbstractJob implements JobInterface
      * 
      * @return int
      */
-    public function getInterval()
+    public function getInterval() : int
     {
         return $this->interval;
     }
@@ -65,6 +65,6 @@ abstract class AbstractJob implements JobInterface
      * @param int|null $executedAt Time of the last execution of this job
      * @return void
      */
-    abstract public function run($executedAt);
+    abstract public function run(int $executedAt = null);
 
 }
