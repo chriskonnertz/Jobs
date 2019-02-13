@@ -10,7 +10,7 @@ Minimalistic Cron job manager. Register jobs and the job manager will execute th
 
 Add `chriskonnertz/jobs` to `composer.json`:
 
-    "chriskonnertz/jobs": "4.*"
+    "chriskonnertz/jobs": "3.*"
     
 Or via a console:
 
