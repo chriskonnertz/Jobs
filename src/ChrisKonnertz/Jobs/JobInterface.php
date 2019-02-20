@@ -34,7 +34,7 @@ interface JobInterface
     /**
      * This method is called when the job is run. Overwrite it in the concrete Job class.
      *
-     * @param int|null $executedAt Time of last execution
+     * @param int|null $executedAt Time(stamp) of last execution
      * @return void
      */
     public function run(int $executedAt = null);
