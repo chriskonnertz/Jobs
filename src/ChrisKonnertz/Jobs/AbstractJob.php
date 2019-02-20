@@ -62,7 +62,7 @@ abstract class AbstractJob implements JobInterface
     /**
      * Runs the job. Implement this method in the concrete job class.
      *
-     * @param int|null $executedAt Time of the last execution of this job
+     * @param int|null $executedAt Time(stamp) of the last execution of this job
      * @return void
      */
     abstract public function run(int $executedAt = null);
