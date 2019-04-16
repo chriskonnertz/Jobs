@@ -80,7 +80,7 @@ Execute the registered jobs:
 
 ### Automatically execute jobs
 
-If your application is built on top of Laravel, you will have access to an Artisan command: `php artisan jobs` This command will call `Jobs::run()` to execute the jobs. Therefore you can add a Cron job to start the command, for example `1 * * * * php /var/www/laravel/artisan jobs`. This will execute the Artisan command every minute. We recommend to run the Cron job every minute.
+If your application is built on top of Laravel, you will have access to an Artisan command: `php artisan jobs` This command will call `Jobs::run()` to execute the jobs. Therefore you can add a Cron job to the crontab to start the command, for example `1 * * * * php /var/www/laravel/artisan jobs`. This will execute the Artisan command every minute. We recommend to run the Cron job every minute.
 
 ## Methods of the jobs manager
 
