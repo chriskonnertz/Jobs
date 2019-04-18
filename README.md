@@ -175,4 +175,4 @@ for the `interval` attribute. The `interval` attribute defines the duration of t
 
 ## Status
 
-Status of this repository: **Maintained**. Create an issue and you will get a response, usually within 48 hours.
+Status of this repository: **Deprecated**. Issues will be fixed but no new feature implemented.
