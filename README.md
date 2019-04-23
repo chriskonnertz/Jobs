@@ -166,7 +166,7 @@ A job class implements the job interface. Therefore it has to implement these me
     }
 ```
 
-The `AbstractJob` class actually implements these methods so we recommend to let your concrete job classes inherit from this class. The asbtract class provides the attributes `name`, `active` and `interval` that inheriting classes may overwrite.
+The `AbstractJob` class actually implements these methods so we recommend to let your concrete job classes inherit from this class. The abstract class provides the attributes `name`, `active` and `interval` that inheriting classes may overwrite.
 
 ### The interval
 
